@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::redirect('/', '/pt-BR');
+Route::redirect('/', '/pt-BR');
 
-//Route::group(['prefix' => '{language}'], function () {
+Route::group(['prefix' => '{language}'], function () {
     Route::get('/', function () {
         return view('moonlight');
     });
@@ -23,5 +23,5 @@ use Illuminate\Support\Facades\Route;
     Auth::routes();
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//});
+});
 
