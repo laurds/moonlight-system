@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Moonlight | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -38,24 +38,28 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="{{url()->current()}}" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link">Clientes</a>
+            </li>
+
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Fornecedores</a>
             </li>
         </ul>
 
         <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+{{--        <form class="form-inline ml-3">--}}
+{{--            <div class="input-group input-group-sm">--}}
+{{--                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">--}}
+{{--                <div class="input-group-append">--}}
+{{--                    <button class="btn btn-navbar" type="submit">--}}
+{{--                        <i class="fa fa-search"></i>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </form>--}}
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
@@ -153,72 +157,72 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
-        </a>
+{{--    <aside class="main-sidebar sidebar-dark-primary elevation-4">--}}
+{{--        <!-- Brand Logo -->--}}
+{{--        <a href="index3.html" class="brand-link">--}}
+{{--            <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"--}}
+{{--                 style="opacity: .8">--}}
+{{--            <span class="brand-text font-weight-light">AdminLTE 3</span>--}}
+{{--        </a>--}}
 
         <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
-                </div>
-            </div>
+{{--        <div class="sidebar">--}}
+{{--            <!-- Sidebar user panel (optional) -->--}}
+{{--            <div class="user-panel mt-3 pb-3 mb-3 d-flex">--}}
+{{--                <div class="image">--}}
+{{--                    <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">--}}
+{{--                </div>--}}
+{{--                <div class="info">--}}
+{{--                    <a href="#" class="d-block">Alexander Pierce</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <?php
-                    $segment = Request::segment(2);
-                    ?>
-                    <li class="nav-item">
-                        <a href="{{ route('home', app()->getLocale()) }}" class="nav-link
-              @if(!$segment)
-                            active
-@endif
-                            ">
-                            <i class="nav-icon fa fa-dashboard"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
+{{--            <!-- Sidebar Menu -->--}}
+{{--            <nav class="mt-2">--}}
+{{--                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">--}}
+{{--                    <!-- Add icons to the links using the .nav-icon class--}}
+{{--                         with font-awesome or any other icon font library -->--}}
+{{--                    <?php--}}
+{{--                    $segment = Request::segment(2);--}}
+{{--                    ?>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ route('home', app()->getLocale()) }}" class="nav-link--}}
+{{--              @if(!$segment)--}}
+{{--                            active--}}
+{{--@endif--}}
+{{--                            ">--}}
+{{--                            <i class="nav-icon fa fa-dashboard"></i>--}}
+{{--                            <p>--}}
+{{--                                Dashboard--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
 
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link
-              @if($segment=='categories')
-                            active
-@endif">
-                            <i class="nav-icon fa fa-th"></i>
-                            <p>
-                                Category
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="" class="nav-link--}}
+{{--              @if($segment=='categories')--}}
+{{--                            active--}}
+{{--@endif">--}}
+{{--                            <i class="nav-icon fa fa-th"></i>--}}
+{{--                            <p>--}}
+{{--                                Category--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
 {{--                        <a href="{{ route('admin.news.index') }}" class="nav-link--}}
-              @if($segment=='news')
-                            active
-@endif">
-                            <i class="nav-icon fa fa-pie-chart"></i>
-                            <p>
-                                News
-                            </p>
-                        </a>
-                    </li>
+{{--              @if($segment=='news')--}}
+{{--                            active--}}
+{{--@endif">--}}
+{{--                            <i class="nav-icon fa fa-pie-chart"></i>--}}
+{{--                            <p>--}}
+{{--                                News--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
-                    <li class="nav-header">Action</li>
-                    <li class="nav-item">
+{{--                    <li class="nav-header">Action</li>--}}
+{{--                    <li class="nav-item">--}}
 {{--                        <a class="nav-link" href="{{ route('logout') }}"--}}
 {{--                           onclick="event.preventDefault();--}}
 {{--                                                     document.getElementById('logout-form').submit();">--}}
@@ -232,26 +236,23 @@
 
 
 
-                    </li>
+{{--                    </li>--}}
 
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
+{{--                </ul>--}}
+{{--            </nav>--}}
+{{--            <!-- /.sidebar-menu -->--}}
+{{--        </div>--}}
         <!-- /.sidebar -->
-    </aside>
+{{--    </aside>--}}
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="margin-left: 0px !important;">
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong>Copyright &copy; 2021 Moonlight.</strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.0-alpha
-        </div>
     </footer>
 
     <!-- Control Sidebar -->

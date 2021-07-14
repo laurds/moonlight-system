@@ -17,7 +17,7 @@ Route::redirect('/', '/pt-BR');
 
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/', function () {
-        return view('moonlight');
+        return view('auth/login');
     });
 
     Auth::routes();
