@@ -118,7 +118,7 @@
 
 {{--                    <li class="nav-header">EXAMPLES</li>--}}
                     <li class="nav-item">
-                        <a href="../calendar.html" class="nav-link">
+                        <a href="{{ route('customers.index',  app()->getLocale())}}" class="nav-link">
                             <i class="nav-icon fas fa-address-book"></i>
                             <p>
                                 Clientes
