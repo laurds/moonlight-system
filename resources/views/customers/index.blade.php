@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -18,7 +17,10 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
+                    <!-- Add customers button-->
+                    <a href="{{ route('customers.create', app()->getLocale()) }}" target="_blank" type="button" class="btn btn-primary">Adicionar <i style="margin-left: 5px;font-size: 13px;" class="fas fa-user-plus"></i>
 
+                    </a>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
@@ -29,81 +31,68 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    <table class="table table-striped projects">
+                    <table class="table">
                         <thead>
                         <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 20%">
+                            <th style="width: 15%">
                                 Nome
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 20%">
                                 E-mail
                             </th>
-                            <th>
-                               Endereço
+                            <th style="width: 30%">
+                                Endereço
                             </th>
-                            <th style="width: 8%" class="text-center">
-                                Status
+                            <th>
+                              Telefone
                             </th>
                             <th style="width: 20%">
                             </th>
                         </tr>
+
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    AdminLTE v3
-                                </a>
-                                <br/>
-                                <small>
-                                    Created 01.01.2019
-                                </small>
-                            </td>
-                            <td>
-                                <a>
-                                    AdminLTE v3
-                                </a>
-                                <br/>
-                                <small>
-                                    Created 01.01.2019
-                                </small>
-                            </td>
-                            <td class="project_progress">
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                                    </div>
-                                </div>
-                                <small>
-                                    57% Complete
-                                </small>
-                            </td>
-                            <td class="project-state">
-                                <span class="badge badge-success">Success</span>
-                            </td>
-                            <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="#">
-                                    <i class="fas fa-folder">
-                                    </i>
-                                    Ver
-                                </a>
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Editar
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Deletar
-                                </a>
-                            </td>
-                        </tr>
+
+
+                        @foreach($customers as $customer)
+                            @if($customer->client_id == Auth::id() )
+                                <tr>
+                                    <td>
+                                        {{ $customer->name }}
+                                    </td>
+                                    <td>
+                                        {{ $customer->email }}
+                                    </td>
+                                    <td>
+                                        {{ $customer->address }}
+                                    </td>
+                                    <td>
+                                        {{ $customer->phone }}
+                                    </td>
+
+                                    <form action="{{ route('customers.destroy',[ app()->getLocale(), $customer->id])}}" method="POST" >
+                                        {{ csrf_field() }}
+                                        <td class="project-actions text-right">
+                                            <a target="_blank" href="{{ route('customers.show',[ app()->getLocale(), $customer->id])}}" class="btn btn-primary btn-sm" >
+                                                <i class="fas fa-folder"></i>
+                                                Ver
+                                            </a>
+                                            <a class="btn btn-info btn-sm" href="{{route('customers.edit', [app()->getLocale(), $customer->id])}}">
+
+                                                <i class="fas fa-pencil-alt"></i>
+                                                Editar
+                                            </a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                                Deletar
+                                            </button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            @endif
+                        @endforeach
 
                         </tbody>
                     </table>
@@ -113,24 +102,4 @@
             <!-- /.card -->
 
     </section>
-
-        <div class="modalCustomer" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 @endsection

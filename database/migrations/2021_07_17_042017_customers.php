@@ -20,8 +20,8 @@ class Customers extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->string('e-mail');
-            $table->text('observation');
+            $table->string('email');
+            $table->text('observation')->nullable();
             $table->timestamps();
         });
     }

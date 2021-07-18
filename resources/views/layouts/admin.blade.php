@@ -8,22 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.css') }}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('plugins/iCheck/flat/blue.css') }}">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="{{ asset('plugins/morris/morris.css') }}">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="{{ asset('plugins/datepicker/datepicker3.css') }}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -81,8 +67,8 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="../../index3.html" class="brand-link">
-            <img src="../../dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <a href="/" class="brand-link">
+            <img src="../../../dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">Moonlight</span>
         </a>
 
@@ -91,7 +77,7 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="../../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">
@@ -158,16 +144,15 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Olá!</h1>
-                    </div>
-                </div>
-            </div><!-- /.container-fluid -->
-        </section>
+{{--        <!-- Content Header (Page header) -->--}}
+{{--        <section class="content-header">--}}
+{{--            <div class="container-fluid">--}}
+{{--                <div class="row mb-2">--}}
+{{--                    <div class="col-sm-6">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div><!-- /.container-fluid -->--}}
+{{--        </section>--}}
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-left: 0px !important;">
@@ -185,37 +170,22 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Loading all scripts -->
+<script src="{{ asset('js/global.js') }}"></script>
+<!-- Jquery mask -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="{{ asset('plugins/morris/morris.js') }}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('plugins/sparkline/jquery.sparkline.min.js') }}"></script>
-<!-- jvectormap -->
-<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('plugins/knob/jquery.knob.js') }}"></script>
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-<script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
-<!-- datepicker -->
-<script src="{{ asset('plugins/datepicker/bootstrap-datepicker.js') }}"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-<!-- Slimscroll -->
-<script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('plugins/fastclick/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
