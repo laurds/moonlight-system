@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Editar cliente {{ Auth::user()->name }}</h1>
+                        <h1>{{ Auth::user()->name }}</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -23,9 +23,6 @@
                 <div class="card-body row">
 
                     <div class="col-7">
-                        <form class="form-horizontal" method="POST"  action="{{ route('customers.update', $customer->id) }}" >
-                        @method('PATCH')
-                        @csrf
                             <div class="form-group">
                                 <label for="name">Nome</label>
                                 <input type="text" name="name" id="name" class="form-control" value="{{ $customer->name }}" required/>
@@ -47,10 +44,6 @@
                                 <label for="observation">Observações</label>
                                 <textarea id="observation" name="observation" class="form-control" rows="5" >{{ $customer->observation }}</textarea>
                             </div>
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-primary" value="Salvar">
-                            </div>
-                        </form>
                     </div>
                 </div>
 

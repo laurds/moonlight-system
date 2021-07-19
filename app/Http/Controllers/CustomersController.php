@@ -37,7 +37,23 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
         Customers::create($request->all());
-        return redirect('/pt-BR/customers');
+        return redirect('customers');
+    }
+
+    /**
+     * Search filter
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+         $customers = Customers::where('name', 'LIKE', "%{$request->search}%")
+                        ->orWhere('email', 'LIKE', "%{$request->search}%")
+                        ->orWhere('phone', 'LIKE', "%{$request->search}%")
+                        ->get();
+
+        return view( "customers.index", compact('customers'));
     }
 
     /**
@@ -46,7 +62,7 @@ class CustomersController extends Controller
      * @param  int  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show($lang, Customers $customer)
+    public function show(Customers $customer)
     {
         return view('customers.view', compact('customer'));
     }
@@ -57,7 +73,7 @@ class CustomersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($lang, $id)
+    public function edit($id)
     {
         $customer = Customers::find($id);
         return view('customers.edit', compact('customer'));
@@ -70,7 +86,7 @@ class CustomersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($lang, Request $request, $id)
+    public function update(Request $request, $id)
     {
         $customer = Customers::find($id);
         $customer->name = $request->get('name');
@@ -80,7 +96,7 @@ class CustomersController extends Controller
         $customer->observation = $request->get('observation');
 
         $customer->update();
-        return redirect('/pt-BR/customers');
+        return redirect()->route('customers.index');
     }
 
     /**
@@ -92,6 +108,6 @@ class CustomersController extends Controller
     public function destroy($lang, Customers $customer)
     {
         $customer->delete();
-        return redirect('/pt-BR/customers');
+        return view( "customers.index", compact('customers'));
     }
 }

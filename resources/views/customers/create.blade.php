@@ -23,15 +23,15 @@
                 <div class="card-body row">
 
                     <div class="col-7">
-                        <form class="form-horizontal" method="POST" action="{{ route('customers.store', app()->getLocale()) }}">
-                            {{ csrf_field() }}
+                        <form class="form-horizontal" method="POST" action="{{ route('customers.store') }}">
+                        @csrf
 
                             <!-- User id relationship with customer -->
                             <input hidden type="text" id="client_id" name="client_id" value="{{ Auth::id() }}"/>
 
                             <div class="form-group">
                                 <label for="name">Nome</label>
-                                <input type="text" name="name" id="name" class="form-control" required/>
+                                <input type="text"  placeholder="Laura Rocha de Matos"  name="name" id="name" class="form-control" required/>
                             </div>
 
                             <div class="form-group">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">E-Mail</label>
-                                <input type="email"  name="email" id="email" class="form-control" placeholder="example@company.com" lrequired/>
+                                <input type="email"  name="email" id="email" class="form-control" placeholder="example@company.com" required/>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Telefone</label>

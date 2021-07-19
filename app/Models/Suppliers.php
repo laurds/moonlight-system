@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Models;
-use Eloquent;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customers extends Model
+class Suppliers extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'address','client_id','observation','phone'];
+    protected $fillable = ['company', 'contact', 'email', 'address','client_id','observation','phone','site'];
 
     /**
      *   Relationship
@@ -18,6 +18,4 @@ class Customers extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
-
 }
-

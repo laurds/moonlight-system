@@ -5,16 +5,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Clientes</h1>
+                        <h1>Fornecedores</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
 
             <!-- Filtro -->
             <div class="input-group input-group-lg">
-                <form  method="POST" action="{{ route('customers.search') }}" style="display: inherit; width: inherit;">
-                    {{ csrf_field() }}
-                    <input type="search" class="form-control form-control-lg"  name="search" id="search" placeholder="Pesquise pelo nome do cliente, e-mail ou telefone."/>
+                <form  method="POST" action="{{ route('suppliers.search') }}" style="display: inherit; width: inherit;">
+                    @csrf
+                    <input type="search" class="form-control form-control-lg"  name="search" id="search" placeholder="Pesquise pelo nome do fornecedor, e-mail ou telefone."/>
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-lg btn-default">
                             <i class="fa fa-search"></i>
@@ -31,7 +31,7 @@
             <div class="card">
                 <div class="card-header">
                     <!-- Add customers button-->
-                    <a href="{{ route('customers.create') }}" type="button" class="btn btn-primary">Adicionar <i style="margin-left: 5px;font-size: 13px;" class="fas fa-user-plus"></i>
+                    <a href="{{ route('suppliers.create') }}" type="button" class="btn btn-primary">Adicionar <i style="margin-left: 5px;font-size: 13px;" class="fas fa-user-plus"></i>
 
                     </a>
                     <div class="card-tools">
@@ -67,30 +67,30 @@
                         <tbody>
 
 
-                        @foreach($customers as $customer)
-                            @if($customer->client_id == Auth::id() )
+                        @foreach($suppliers as $supplier)
+                            @if($supplier->client_id == Auth::id() )
                                 <tr>
                                     <td>
-                                        {{ $customer->name }}
+                                        {{ $supplier->name }}
                                     </td>
                                     <td>
-                                        {{ $customer->email }}
+                                        {{ $supplier->email }}
                                     </td>
                                     <td>
-                                        {{ $customer->address }}
+                                        {{ $supplier->address }}
                                     </td>
                                     <td>
-                                        {{ $customer->phone }}
+                                        {{ $supplier->phone }}
                                     </td>
 
-                                    <form action="{{ route('customers.destroy', $customer->id )}}" method="POST" >
-                                        {{ csrf_field() }}
+                                    <form action="{{ route('suppliers.destroy', $supplier->id )}}" method="POST" >
+                                        @csrf
                                         <td class="project-actions text-right">
-                                            <a target="_blank" href="{{ route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm" >
+                                            <a target="_blank" href="{{ route('suppliers.show', $supplier->id)}}" class="btn btn-primary btn-sm" >
                                                 <i class="fas fa-folder"></i>
                                                 Ver
                                             </a>
-                                            <a class="btn btn-info btn-sm" href="{{route('customers.edit', $customer->id)}}">
+                                            <a class="btn btn-info btn-sm" href="{{route('suppliers.edit', $supplier->id)}}">
 
                                                 <i class="fas fa-pencil-alt"></i>
                                                 Editar

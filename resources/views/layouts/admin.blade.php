@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ app()->getLocale()}}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAQP/5ACMlKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIiAAAAAAAiEREiAAAAAhEREREgAAAhERESIhIAACEREiAAIgACEREgAAACAAIREgAAAAAAAhESAAAgAAICESAAACAAAAAhIAAiEiAAACEgAAAgAAAAAhIAACAAAAAAIiAAAAAgAAAAACAAAhIAIAAAAAAAIAAAAAAAAAAAD4fwAA4B8AAMAPAACABwAAgOcAAAP3AAAH/wAAB70AAA+/AACODwAAj78AAMe/AADj+wAA/vEAAL/7AAD//wAA" rel="icon" type="image/x-icon" />
 </head>
 
 <body class="hold-transition sidebar-mini sidebar-collapse">
@@ -104,7 +105,7 @@
 
 {{--                    <li class="nav-header">EXAMPLES</li>--}}
                     <li class="nav-item">
-                        <a href="{{ route('customers.index',  app()->getLocale())}}" class="nav-link">
+                        <a href="{{ route('customers.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-address-book"></i>
                             <p>
                                 Clientes
@@ -113,7 +114,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../gallery.html" class="nav-link">
+                        <a href="{{ route('suppliers.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-suitcase"></i>
                             <p>
                                 Fornecedores

@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,19 +13,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-$home = app()->getLocale() . "/login";
-Route::redirect('/', $home);
 
-Route::group(['prefix' => '{language}'], function () {
-    Route::get('/', function () {
-        return view('auth/login');
-    });
+Route::redirect('/','/login');
 
-    //Rotas autenticação
-    Auth::routes();
+Route::get('/', ['middleware' =>'guest', function(){
+    return view('auth.login');
+}]);
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-    Route::resource('customers', CustomersController::class);
-});
-
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/customers/search', [App\Http\Controllers\CustomersController::class, 'search'])->name('customers.search');
+Route::post('/suppliers/search', [App\Http\Controllers\SuppliersController::class, 'search'])->name('suppliers.search');
+Route::resource('customers', CustomersController::class);
+Route::resource('suppliers', SuppliersController::class);

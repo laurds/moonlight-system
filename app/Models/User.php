@@ -48,4 +48,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Customers');
     }
+
+    /**
+     *   Relationship
+     */
+    public function suppliers()
+    {
+        return $this->hasMany('App\Models\Suppliers');
+    }
 }
