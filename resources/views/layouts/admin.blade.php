@@ -122,7 +122,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../kanban.html" class="nav-link">
+                        <a class="nav-link">
                             <i class="nav-icon fas fa-users-cog"></i>
                             <p>
                                 Configurações
