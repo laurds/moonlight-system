@@ -5,8 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+                <center>
+                    <img src="../../../dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8;width: 150px; margin-top: 15px;">
+                </center>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
