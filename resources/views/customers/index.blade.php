@@ -13,7 +13,7 @@
             <!-- Filtro -->
             <div class="input-group input-group-lg">
                 <form  method="POST" action="{{ route('customers.search') }}" style="display: inherit; width: inherit;">
-                    {{ csrf_field() }}
+                    @csrf
                     <input type="search" class="form-control form-control-lg"  name="search" id="search" placeholder="Pesquise pelo nome do cliente, e-mail ou telefone."/>
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-lg btn-default">
@@ -84,7 +84,7 @@
                                     </td>
 
                                     <form action="{{ route('customers.destroy', $customer->id )}}" method="POST" >
-                                        {{ csrf_field() }}
+                                        @csrf
                                         <td class="project-actions text-right">
                                             <a target="_blank" href="{{ route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm" >
                                                 <i class="fas fa-folder"></i>

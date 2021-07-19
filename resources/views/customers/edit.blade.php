@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Editar cliente {{ Auth::user()->name }}</h1>
+                        <h1>Editar cliente {{ $customer->name }}</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -37,11 +37,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">E-Mail</label>
-                                <input type="email"  name="email" id="email" class="form-control" value="{{ $customer->email }}" required/>
+                                <input type="email"  name="email" id="email" class="form-control" value="{{ $customer->email }}" required />
                             </div>
                             <div class="form-group">
                                 <label for="phone">Telefone</label>
-                                <input type="text" id="phone" name="phone" class="form-control" value="{{ $customer->phone }} required"/>
+                                <input type="text" id="phone" name="phone" class="form-control" value="{{ $customer->phone }}" required />
                             </div>
                             <div class="form-group">
                                 <label for="observation">Observações</label>

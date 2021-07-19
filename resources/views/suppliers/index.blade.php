@@ -48,15 +48,18 @@
                         <thead>
                         <tr>
                             <th style="width: 15%">
-                                Nome
+                                Empresa
+                            </th>
+                            <th style="width: 15%">
+                                Contato
                             </th>
                             <th style="width: 20%">
                                 E-mail
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 20%">
                                 Endereço
                             </th>
-                            <th>
+                            <th style="width: 10%">
                               Telefone
                             </th>
                             <th style="width: 20%">
@@ -71,7 +74,10 @@
                             @if($supplier->client_id == Auth::id() )
                                 <tr>
                                     <td>
-                                        {{ $supplier->name }}
+                                        {{ $supplier->company }}
+                                    </td>
+                                    <td>
+                                        {{ $supplier->contact }}
                                     </td>
                                     <td>
                                         {{ $supplier->email }}

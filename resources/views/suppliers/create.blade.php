@@ -31,12 +31,12 @@
 
                             <div class="form-group">
                                 <label for="name">Empresa</label>
-                                <input type="text"  name="company" id="company" class="form-control" required/>
+                                <input type="text"  name="company" id="company" class="form-control"/>
                             </div>
 
                             <div class="form-group">
                                 <label for="name">Contato</label>
-                                <input type="text"  name="contact" id="contact" class="form-control" required/>
+                                <input type="text"  name="contact" id="contact" class="form-control"/>
                             </div>
 
                             <div class="form-group">

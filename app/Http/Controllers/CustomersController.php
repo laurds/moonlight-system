@@ -105,9 +105,9 @@ class CustomersController extends Controller
      * @param  int  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy($lang, Customers $customer)
+    public function destroy(Customers $customer)
     {
         $customer->delete();
-        return view( "customers.index", compact('customers'));
+        return redirect()->route('customers.index');
     }
 }

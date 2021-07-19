@@ -47,7 +47,13 @@ class SuppliersController extends Controller
      */
     public function search(Request $request)
     {
-        //
+        $suppliers = Suppliers::where('company', 'LIKE', "%{$request->search}%")
+            ->orWhere('email', 'LIKE', "%{$request->search}%")
+            ->orWhere('contact', 'LIKE', "%{$request->search}%")
+            ->orWhere('phone', 'LIKE', "%{$request->search}%")
+            ->get();
+
+        return view( "suppliers.index", compact('suppliers'));
     }
 
     /**
@@ -56,9 +62,9 @@ class SuppliersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Suppliers $supplier)
     {
-        //
+        return view('suppliers.view', compact('supplier'));
     }
 
     /**
@@ -69,7 +75,8 @@ class SuppliersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supplier = Suppliers::find($id);
+        return view('suppliers.edit', compact('supplier'));
     }
 
     /**
@@ -81,7 +88,17 @@ class SuppliersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $supplier = Suppliers::find($id);
+        $supplier->company = $request->get('company');
+        $supplier->contact = $request->get('contact');
+        $supplier->address = $request->get('address');
+        $supplier->email = $request->get('email');
+        $supplier->phone = $request->get('phone');
+        $supplier->site = $request->get('site');
+        $supplier->observation = $request->get('observation');
+
+        $supplier->update();
+        return redirect()->route('suppliers.index');
     }
 
     /**
@@ -90,8 +107,9 @@ class SuppliersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Suppliers $supplier)
     {
-        //
+        $supplier->delete();
+        return redirect()->route('suppliers.index');
     }
 }
