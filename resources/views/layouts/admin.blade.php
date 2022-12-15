@@ -122,6 +122,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('support.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-life-ring"></i>
+                            <p>
+                                Suporte
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link">
                             <i class="nav-icon fas fa-users-cog"></i>
                             <p>

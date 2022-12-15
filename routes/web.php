@@ -24,6 +24,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/customers/search', [App\Http\Controllers\CustomersController::class, 'search'])->name('customers.search');
 Route::post('/suppliers/search', [App\Http\Controllers\SuppliersController::class, 'search'])->name('suppliers.search');
+Route::post('send', [App\Http\Controllers\SupportController::class, 'send'])->name('support.send');
+
 //Route::get('/settings', [App\Http\Controllers\SettingsController::class, 'index'])->name('settings');
 Route::resource('customers', CustomersController::class);
 Route::resource('suppliers', SuppliersController::class);
+Route::resource('support', \App\Http\Controllers\SupportController::class);
